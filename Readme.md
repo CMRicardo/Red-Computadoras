@@ -12,5 +12,6 @@ But I'm also learning to use of **Makefile**, which I'm putting in practice in t
 - Changing the state from **off** to **on** and viceversa.
 - Connecting and disconnecting an specific PC from the network.
 
-_Main menu screenshot_
+## Main menu screenshot
+
 ![App screenshot](Images/App-Screenshot.png)
