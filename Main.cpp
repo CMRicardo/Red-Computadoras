@@ -27,6 +27,7 @@ int main() {
       net.turnOnComputer();
       break;
     case TURN_OFF:
+      net.turnOffComputer();
       break;
     case CONNECT_NET:
       break;

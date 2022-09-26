@@ -11,4 +11,6 @@ public:
   void showNetwork();
 
   void turnOnComputer();
+
+  void turnOffComputer();
 };

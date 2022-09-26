@@ -42,3 +42,28 @@ void Network::turnOnComputer() {
     }
   }
 }
+
+void Network::turnOffComputer() {
+  int index = DOES_NOT_EXIST;
+  int idPC;
+  cout << "Enter a valid id: ";
+  cin >> idPC;
+
+  for (int i = 0; i < MAX_CPUS; i++) {
+    if (cpus[i].id == idPC) {
+      index = i;
+      break;
+    }
+  }
+
+  if (index == DOES_NOT_EXIST) {
+    cout << "ERROR: ID doesn't exist" << endl;
+  } else {
+    if (!cpus[index].isTurnedOn) {
+      cout << "PC #" << index + 1 << " was already turned off" << endl;
+    } else {
+      cout << "PC #" << index + 1 << " turned off" << endl;
+      cpus[index].isTurnedOn = false;
+    }
+  }
+}
