@@ -3,7 +3,7 @@ EXECUTABLE = Red-Computadoras.exe
 COMPILER = clang
 
 # Compiles the program
-Program: $(OBJECT_FILES)
+all: $(OBJECT_FILES)
 	$(COMPILER) $(OBJECT_FILES) -o $(EXECUTABLE)
 
 Main.o: Main.cpp ./Headers/Constants.h

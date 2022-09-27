@@ -1,3 +1,10 @@
 {
-  "cSpell.language": "en,es-ES"
+  "cSpell.language": "en,es-ES",
+  "makefile.launchConfigurations": [
+    {
+      "cwd": "c:\\Users\\ricar\\Dev\\Red-Computadoras",
+      "binaryPath": "c:\\Users\\ricar\\Dev\\Red-Computadoras\\Red-Computadoras.exe",
+      "binaryArgs": []
+    }
+  ]
 }
