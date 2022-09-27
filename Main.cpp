@@ -30,6 +30,7 @@ int main() {
       net.turnOffComputer();
       break;
     case CONNECT_NET:
+      net.connectNetwork();
       break;
     case DISCONNECT_NET:
       break;

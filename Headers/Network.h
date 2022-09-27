@@ -13,4 +13,8 @@ public:
   void turnOnComputer();
 
   void turnOffComputer();
+
+  void connectNetwork();
+
+  int getIndex();
 };

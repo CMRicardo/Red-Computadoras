@@ -10,6 +10,22 @@ Network::Network() {
   }
 }
 
+int Network::getIndex() {
+  int index = DOES_NOT_EXIST;
+  int idPC;
+  cout << "Enter a valid id: ";
+  cin >> idPC;
+
+  for (int i = 0; i < MAX_CPUS; i++) {
+    if (cpus[i].id == idPC) {
+      index = i;
+      break;
+    }
+  }
+
+  return index;
+}
+
 void Network::showNetwork() {
   for (int i = 0; i < MAX_CPUS; i++) {
     cout << "-----------------------" << endl << "PC #" << i + 1 << endl;
@@ -19,17 +35,7 @@ void Network::showNetwork() {
 }
 
 void Network::turnOnComputer() {
-  int idPC;
-  cout << "Enter a valid id: ";
-  cin >> idPC;
-
-  int index = DOES_NOT_EXIST;
-  for (int i = 0; i < MAX_CPUS; i++) {
-    if (cpus[i].id == idPC) {
-      index = i;
-      break;
-    }
-  }
+  int index = getIndex();
 
   if (index == DOES_NOT_EXIST) {
     cout << "ERROR: ID doesn't exist" << endl;
@@ -44,17 +50,7 @@ void Network::turnOnComputer() {
 }
 
 void Network::turnOffComputer() {
-  int index = DOES_NOT_EXIST;
-  int idPC;
-  cout << "Enter a valid id: ";
-  cin >> idPC;
-
-  for (int i = 0; i < MAX_CPUS; i++) {
-    if (cpus[i].id == idPC) {
-      index = i;
-      break;
-    }
-  }
+  int index = getIndex();
 
   if (index == DOES_NOT_EXIST) {
     cout << "ERROR: ID doesn't exist" << endl;
@@ -64,6 +60,24 @@ void Network::turnOffComputer() {
     } else {
       cout << "PC #" << index + 1 << " turned off" << endl;
       cpus[index].isTurnedOn = false;
+    }
+  }
+}
+
+void Network::connectNetwork() {
+  int index = getIndex();
+
+  if (index == DOES_NOT_EXIST) {
+    cout << "ERROR: ID doesn't exist" << endl;
+  } else {
+    if (!cpus[index].isTurnedOn) {
+      cout << "PC #" << index + 1 << " is turned off!" << endl
+           << "Can't connect to the network" << endl;
+    } else if (cpus[index].isConnected) {
+      cout << "PC #" << index + 1 << " is already connected" << endl;
+    } else {
+      cout << "PC #" << index + 1 << " connected to the network" << endl;
+      cpus[index].isConnected = true;
     }
   }
 }
