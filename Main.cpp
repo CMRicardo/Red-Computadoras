@@ -35,6 +35,10 @@ int main() {
     case DISCONNECT_NET:
       net.disconnectNetwork();
       break;
+    case DOWNLOAD_FILE:
+      break;
+    case COPY_FILE:
+      break;
     case EXIT:
       cout << "Goodbye!" << endl;
       break;

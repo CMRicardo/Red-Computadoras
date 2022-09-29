@@ -10,7 +10,9 @@ void PrintMenu() {
        << "3 - Turn off a PC" << endl
        << "4 - Connect network" << endl
        << "5 - Disconnect network" << endl
-       << "6 - Exit" << endl
+       << "6 - Download file" << endl
+       << "7 - Copy file" << endl
+       << "8 - Exit" << endl
        << "-----------------------" << endl
-       << "Enter an option [1 - 6]: ";
+       << "Enter an option [1 - 8]: ";
 }
