@@ -11,11 +11,12 @@ public:
   void showNetwork();
 
   void turnOnComputer();
-
   void turnOffComputer();
 
   void connectNetwork();
   void disconnectNetwork();
+
+  void downloadFile();
 
   int getIndex();
 };

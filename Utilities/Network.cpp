@@ -98,3 +98,16 @@ void Network::disconnectNetwork() {
     }
   }
 }
+
+void Network::downloadFile() {
+  int index = getIndex();
+
+  if (index == DOES_NOT_EXIST) {
+    cout << "ERROR: ID doesn't exist" << endl;
+    return;
+  }
+
+  if (cpus[index].isConnected && cpus[index].isTurnedOn) {
+    cout << "Downloading..." << endl;
+  }
+}

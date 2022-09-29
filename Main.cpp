@@ -36,6 +36,7 @@ int main() {
       net.disconnectNetwork();
       break;
     case DOWNLOAD_FILE:
+      net.downloadFile();
       break;
     case COPY_FILE:
       break;
