@@ -33,6 +33,7 @@ int main() {
       net.connectNetwork();
       break;
     case DISCONNECT_NET:
+      net.disconnectNetwork();
       break;
     case EXIT:
       cout << "Goodbye!" << endl;

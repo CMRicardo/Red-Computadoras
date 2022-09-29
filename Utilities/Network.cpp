@@ -81,3 +81,20 @@ void Network::connectNetwork() {
     }
   }
 }
+
+void Network::disconnectNetwork() {
+  int index = getIndex();
+
+  if (index == DOES_NOT_EXIST) {
+    cout << "ERROR: ID doesn't exist" << endl;
+  } else {
+    if (!cpus[index].isTurnedOn) {
+      cout << "PC #" << index + 1 << " is turned off!" << endl;
+    } else if (!cpus[index].isConnected) {
+      cout << "PC #" << index + 1 << " is already disconnected" << endl;
+    } else {
+      cout << "PC #" << index + 1 << " disconnected of the network" << endl;
+      cpus[index].isConnected = false;
+    }
+  }
+}

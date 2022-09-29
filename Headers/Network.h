@@ -15,6 +15,7 @@ public:
   void turnOffComputer();
 
   void connectNetwork();
+  void disconnectNetwork();
 
   int getIndex();
 };
