@@ -18,5 +18,6 @@ public:
 
   void downloadFile();
 
+private:
   int getIndex();
 };
