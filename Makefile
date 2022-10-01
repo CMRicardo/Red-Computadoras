@@ -1,23 +1,22 @@
-OBJECT_FILES = Main.o Computer.o Menu.o Network.o
 EXECUTABLE = Red-Computadoras.exe
-COMPILER = clang
+CC = clang
 
 # Compiles the program
-all: $(OBJECT_FILES)
-	$(COMPILER) $(OBJECT_FILES) -o $(EXECUTABLE)
+all: ObjectFiles/Main.o ObjectFiles/Computer.o ObjectFiles/Menu.o ObjectFiles/Network.o
+	$(CC) $? -o $(EXECUTABLE)
 
-Main.o: Main.cpp ./Headers/Constants.h
-	$(COMPILER) -c Main.cpp
+ObjectFiles/Main.o: Main.cpp ./Headers/Constants.h
+	$(CC) -c Main.cpp -o ./$@
 
-Computer.o: ./Utilities/Computer.cpp ./Headers/Computer.h ./Headers/Constants.h
-	$(COMPILER) -c ./Utilities/Computer.cpp
+ObjectFiles/Computer.o: ./Utilities/Computer.cpp ./Headers/Computer.h ./Headers/Constants.h
+	$(CC) -c ./Utilities/Computer.cpp -o ./$@
 
-Menu.o: ./Utilities/Menu.cpp ./Headers/Menu.h
-	$(COMPILER) -c ./Utilities/Menu.cpp
+ObjectFiles/Menu.o: ./Utilities/Menu.cpp ./Headers/Menu.h
+	$(CC) -c ./Utilities/Menu.cpp -o ./$@
 
-Network.o: ./Utilities/Network.cpp ./Headers/Network.h ./Headers/Constants.h
-	$(COMPILER) -c ./Utilities/Network.cpp
+ObjectFiles/Network.o: ./Utilities/Network.cpp ./Headers/Network.h ./Headers/Constants.h
+	$(CC) -c ./Utilities/Network.cpp -o ./$@
 
 # Cleans temporary files
 clean:
-	rm -f $(OBJECT_FILES) $(EXECUTABLE)
+	rm -f ./ObjectFiles/*.o $(EXECUTABLE)
