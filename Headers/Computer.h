@@ -1,6 +1,6 @@
 #pragma once
 class Computer {
-public:
+ public:
   int id;
   int disk;
   bool isTurnedOn;

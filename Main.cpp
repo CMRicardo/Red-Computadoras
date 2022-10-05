@@ -1,10 +1,12 @@
+#include <stdlib.h>
+
+#include <iostream>
+
 #include "Headers/Computer.h"
 #include "Headers/Constants.h"
 #include "Headers/Menu.h"
 #include "Headers/Network.h"
 
-#include <iostream>
-#include <stdlib.h>
 
 using namespace std;
 
@@ -20,32 +22,32 @@ int main() {
     cin >> selectedOption;
 
     switch (selectedOption) {
-    case SHOW_INFO:
-      net.showNetwork();
-      break;
-    case TURN_ON:
-      net.turnOnComputer();
-      break;
-    case TURN_OFF:
-      net.turnOffComputer();
-      break;
-    case CONNECT_NET:
-      net.connectNetwork();
-      break;
-    case DISCONNECT_NET:
-      net.disconnectNetwork();
-      break;
-    case DOWNLOAD_FILE:
-      net.downloadFile();
-      break;
-    case COPY_FILE:
-      break;
-    case EXIT:
-      cout << "Goodbye!" << endl;
-      break;
-    default:
-      cout << "ERROR: Unknown option" << endl;
-      break;
+      case SHOW_INFO:
+        net.showNetwork();
+        break;
+      case TURN_ON:
+        net.turnOnComputer();
+        break;
+      case TURN_OFF:
+        net.turnOffComputer();
+        break;
+      case CONNECT_NET:
+        net.connectNetwork();
+        break;
+      case DISCONNECT_NET:
+        net.disconnectNetwork();
+        break;
+      case DOWNLOAD_FILE:
+        net.downloadFile();
+        break;
+      case COPY_FILE:
+        break;
+      case EXIT:
+        cout << "Goodbye!" << endl;
+        break;
+      default:
+        cout << "ERROR: Unknown option" << endl;
+        break;
     }
     // Pauses the app execution after each iteration
     system("pause");

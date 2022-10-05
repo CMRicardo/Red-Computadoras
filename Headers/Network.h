@@ -3,7 +3,7 @@
 #include "Computer.h"
 
 class Network {
-public:
+ public:
   Computer cpus[MAX_CPUS];
 
   Network();
@@ -18,6 +18,6 @@ public:
 
   void downloadFile();
 
-private:
+ private:
   int getIndex();
 };

@@ -1,11 +1,14 @@
 #include "../Headers/Computer.h"
-#include "../Headers/Constants.h"
+
 #include <iostream>
+
+#include "../Headers/Constants.h"
+
 using namespace std;
 
 Computer::Computer() {
   id = DOES_NOT_EXIST;
-  disk = 1024;
+  disk = INITIAL_DISK;
   isTurnedOn = false;
   isConnected = false;
 }

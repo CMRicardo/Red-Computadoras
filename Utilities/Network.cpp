@@ -1,7 +1,9 @@
 #include "../Headers/Network.h"
-#include "../Headers/Constants.h"
 
 #include <iostream>
+
+#include "../Headers/Constants.h"
+
 using namespace std;
 
 /**
