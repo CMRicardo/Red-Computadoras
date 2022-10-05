@@ -4,12 +4,23 @@
 #include <iostream>
 using namespace std;
 
+/**
+ * The constructor for the Network class initializes the id field of each CPU
+ * object in the cpus array to a unique value
+ */
 Network::Network() {
   for (int i = 0; i < MAX_CPUS; i++) {
     cpus[i].id = BASE_ID + i;
   }
 }
 
+/**
+ * The function asks the user to enter a valid id, then it loops through the
+ * array of computers and returns the index of the computer with the id that the
+ * user entered
+ *
+ * @return The index of the computer in the array.
+ */
 int Network::getIndex() {
   int index = DOES_NOT_EXIST;
   int idPC;
@@ -26,6 +37,9 @@ int Network::getIndex() {
   return index;
 }
 
+/**
+ * It displays the information of each computer in the network
+ */
 void Network::showNetwork() {
   for (int i = 0; i < MAX_CPUS; i++) {
     cout << "-----------------------" << endl << "PC #" << i + 1 << endl;
@@ -34,6 +48,10 @@ void Network::showNetwork() {
   }
 }
 
+/**
+ * The function `turnOnComputer()` turns on a computer if it's not already
+ * turned on
+ */
 void Network::turnOnComputer() {
   int index = getIndex();
 
@@ -49,6 +67,11 @@ void Network::turnOnComputer() {
   }
 }
 
+/**
+ * The function gets the index of the computer to turn off, checks if the index
+ * is valid, and if it is, checks if the computer is already turned off, and if
+ * it isn't, turns it off
+ */
 void Network::turnOffComputer() {
   int index = getIndex();
 
@@ -64,6 +87,10 @@ void Network::turnOffComputer() {
   }
 }
 
+/**
+ * If the ID exists, and the PC is turned on, and the PC is not already
+ * connected, then connect the PC to the network
+ */
 void Network::connectNetwork() {
   int index = getIndex();
 
@@ -82,6 +109,9 @@ void Network::connectNetwork() {
   }
 }
 
+/**
+ * The function disconnectNetwork() disconnects a computer from the network
+ */
 void Network::disconnectNetwork() {
   int index = getIndex();
 
@@ -106,8 +136,8 @@ void Network::downloadFile() {
     cout << "ERROR: ID doesn't exist" << endl;
     return;
   }
-
-  if (cpus[index].isConnected && cpus[index].isTurnedOn) {
+  const bool isValid = cpus[index].isConnected && cpus[index].isTurnedOn;
+  if (isValid) {
     cout << "Downloading..." << endl;
   }
 }
