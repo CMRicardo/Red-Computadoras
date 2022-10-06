@@ -152,7 +152,7 @@ void Network::downloadFile() {
         cpus[index].disk -= pesoArchivo;
         cout << "Hay espacio suficiente" << endl
              << "Descargando..." << endl
-             << "El espacio restante es: " << cpus[index].disk << "GB" << endl;
+             << "El espacio restante es: " << cpus[index].disk << " GB" << endl;
       } else {
         cout << "Espacio insuficiente :(" << endl;
       }
@@ -162,5 +162,57 @@ void Network::downloadFile() {
     }
   } else {
     cout << "No esta encendida" << endl;
+  }
+}
+
+void Network::copyFile() {
+  cout << "------------------RECEPTOR------------------" << endl;
+  int indexReceptor = getIndex();
+  cout << "------------------EMISOR------------------" << endl;
+  int indexEmisor = getIndex();
+
+  if (indexReceptor == DOES_NOT_EXIST) {
+    cout << "ERROR: ID doesn't exist" << endl;
+    return;
+  }
+  if (indexEmisor == DOES_NOT_EXIST) {
+    cout << "ERROR: ID doesn't exist" << endl;
+    return;
+  }
+
+  bool estanEncendidas =
+      cpus[indexReceptor].isTurnedOn && cpus[indexEmisor].isTurnedOn;
+  bool estanConectadas =
+      cpus[indexReceptor].isConnected && cpus[indexEmisor].isConnected;
+
+  if (estanEncendidas) {
+    if (estanConectadas) {
+      int pesoArchivo = generarNumeroAleatorio();
+      cout << "El peso del archivo es: " << pesoArchivo << " GB" << endl;
+
+      bool hayEspacioSuficiente = cpus[indexReceptor].disk >= pesoArchivo;
+      if (hayEspacioSuficiente) {
+        cpus[indexReceptor].disk -= pesoArchivo;
+        cout << "Hay espacio suficiente" << endl
+             << "Copiando..." << endl
+             << "El espacio restante es: " << cpus[indexReceptor].disk << " GB"
+             << endl;
+      } else {
+        cout << "Espacio insuficiente :(" << endl;
+      }
+
+    } else if (!cpus[indexReceptor].isConnected) {
+      cout << "ERROR: La PC receptora no esta conectada" << endl;
+    } else if (!cpus[indexEmisor].isConnected) {
+      cout << "ERROR: La PC emisora no esta conectada" << endl;
+    } else {
+      cout << "No estan conectadas" << endl;
+    }
+  } else if (!cpus[indexReceptor].isTurnedOn) {
+    cout << "ERROR: La PC receptora no esta encendida" << endl;
+  } else if (!cpus[indexEmisor].isTurnedOn) {
+    cout << "ERROR: La PC emisora no esta encendida" << endl;
+  } else {
+    cout << "No estan encendidas" << endl;
   }
 }

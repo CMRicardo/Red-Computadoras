@@ -40,8 +40,10 @@ int main() {
         net.downloadFile();
         break;
       case COPY_FILE:
+        net.copyFile();
         break;
       case EXIT:
+        // TODO: Hacer los créditos
         cout << "Goodbye!" << endl;
         break;
       default:

@@ -17,6 +17,7 @@ class Network {
   void disconnectNetwork();
 
   void downloadFile();
+  void copyFile();
 
  private:
   int getIndex();
