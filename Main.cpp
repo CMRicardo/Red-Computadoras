@@ -2,7 +2,6 @@
 
 #include <iostream>
 
-#include "Headers/Computer.h"
 #include "Headers/Constants.h"
 #include "Headers/Imprimir.h"
 #include "Headers/Network.h"
@@ -12,15 +11,15 @@ using namespace std;
 int main() {
   // Contiene todas las PCs del laboratorio
   Red red;
-  int selectedOption = NO_EXISTE;
+  int opcionSeleccionada = NO_EXISTE;
 
   do {
     // Limpia la pantalla en cada iteración
     system("cls");
     imprimirMenu();
-    cin >> selectedOption;
+    cin >> opcionSeleccionada;
 
-    switch (selectedOption) {
+    switch (opcionSeleccionada) {
       case MOSTRAR_INFORMACION:
         red.mostrarRed();
         break;
@@ -51,5 +50,5 @@ int main() {
     }
     // Pausa la ejecución del programa después de cada iteración
     system("pause");
-  } while (selectedOption != SALIR);
+  } while (opcionSeleccionada != SALIR);
 }
