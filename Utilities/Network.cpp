@@ -2,27 +2,16 @@
 
 using namespace std;
 
-/**
- * The constructor for the Network class initializes the id field of each CPU
- * object in the cpus array to a unique value
- */
 Red::Red() {
   for (int i = 0; i < MAX_CPUS; i++) {
     cpus[i].id = ID_BASE + i;
   }
 }
 
-/**
- * The function asks the user to enter a valid id, then it loops through the
- * array of computers and returns the index of the computer with the id that the
- * user entered
- *
- * @return The index of the computer in the array.
- */
 int Red::obtenerIndex() {
   int index = NO_EXISTE;
   int idPC;
-  cout << "Enter a valid id: ";
+  cout << "Ingresa el id de la PC: ";
   cin >> idPC;
 
   for (int i = 0; i < MAX_CPUS; i++) {
@@ -35,9 +24,6 @@ int Red::obtenerIndex() {
   return index;
 }
 
-/**
- * It displays the information of each computer in the network
- */
 void Red::mostrarRed() {
   for (int i = 0; i < MAX_CPUS; i++) {
     cout << "-----------------------" << endl << "PC #" << i + 1 << endl;
@@ -46,20 +32,16 @@ void Red::mostrarRed() {
   }
 }
 
-/**
- * The function `turnOnComputer()` turns on a computer if it's not already
- * turned on
- */
 void Red::encenderComputadora() {
   int index = obtenerIndex();
 
   if (index == NO_EXISTE) {
-    cout << "ERROR: ID doesn't exist" << endl;
+    cout << "ERROR: La PC no existe" << endl;
   } else {
     if (cpus[index].estaEncendida) {
-      cout << "PC #" << index + 1 << " was already turned on" << endl;
+      cout << "PC #" << index + 1 << " ya esta encendida" << endl;
     } else {
-      cout << "PC #" << index + 1 << " turned on" << endl;
+      cout << "PC #" << index + 1 << " encendida" << endl;
       cpus[index].estaEncendida = true;
     }
   }
@@ -69,54 +51,47 @@ void Red::apagarComputadora() {
   int index = obtenerIndex();
 
   if (index == NO_EXISTE) {
-    cout << "ERROR: ID doesn't exist" << endl;
+    cout << "ERROR: La PC no existe" << endl;
   } else {
     if (!cpus[index].estaEncendida) {
-      cout << "PC #" << index + 1 << " was already turned off" << endl;
+      cout << "PC #" << index + 1 << " ya esta apagada" << endl;
     } else {
-      cout << "PC #" << index + 1 << " turned off" << endl;
+      cout << "PC #" << index + 1 << " apagada" << endl;
       cpus[index].estaEncendida = false;
     }
   }
 }
 
-/**
- * If the ID exists, and the PC is turned on, and the PC is not already
- * connected, then connect the PC to the network
- */
 void Red::conectarRed() {
   int index = obtenerIndex();
 
   if (index == NO_EXISTE) {
-    cout << "ERROR: ID doesn't exist" << endl;
+    cout << "ERROR: La PC no existe" << endl;
   } else {
     if (!cpus[index].estaEncendida) {
-      cout << "PC #" << index + 1 << " is turned off!" << endl
-           << "Can't connect to the network" << endl;
+      cout << "PC #" << index + 1 << " esta apagada!" << endl
+           << "No se puede conectar a la red" << endl;
     } else if (cpus[index].estaConectada) {
-      cout << "PC #" << index + 1 << " is already connected" << endl;
+      cout << "PC #" << index + 1 << " ya esta conectada" << endl;
     } else {
-      cout << "PC #" << index + 1 << " connected to the network" << endl;
+      cout << "PC #" << index + 1 << " conectada a la red" << endl;
       cpus[index].estaConectada = true;
     }
   }
 }
 
-/**
- * The function disconnectNetwork() disconnects a computer from the network
- */
 void Red::desconectarRed() {
   int index = obtenerIndex();
 
   if (index == NO_EXISTE) {
-    cout << "ERROR: ID doesn't exist" << endl;
+    cout << "ERROR: La PC no existe" << endl;
   } else {
     if (!cpus[index].estaEncendida) {
-      cout << "PC #" << index + 1 << " is turned off!" << endl;
+      cout << "PC #" << index + 1 << " esta apagada!" << endl;
     } else if (!cpus[index].estaConectada) {
-      cout << "PC #" << index + 1 << " is already disconnected" << endl;
+      cout << "PC #" << index + 1 << " ya esta desconectada" << endl;
     } else {
-      cout << "PC #" << index + 1 << " disconnected of the network" << endl;
+      cout << "PC #" << index + 1 << " desconectada de la red" << endl;
       cpus[index].estaConectada = false;
     }
   }
@@ -128,7 +103,7 @@ void Red::descargarArchivo() {
   int index = obtenerIndex();
 
   if (index == NO_EXISTE) {
-    cout << "ERROR: ID doesn't exist" << endl;
+    cout << "ERROR: La PC no existe" << endl;
     return;
   }
 

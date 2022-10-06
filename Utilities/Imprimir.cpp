@@ -3,33 +3,33 @@
 using namespace std;
 
 void imprimirMenu() {
-  cout << "MAIN MENU" << endl
+  cout << "MENU PRINCIPAL" << endl
        << "-----------------------" << endl
-       << "1 - Show PCs" << endl
-       << "2 - Turn on a PC" << endl
-       << "3 - Turn off a PC" << endl
-       << "4 - Connect network" << endl
-       << "5 - Disconnect network" << endl
-       << "6 - Download file" << endl
-       << "7 - Copy file" << endl
-       << "8 - Exit" << endl
+       << "1 - Mostrar PCs" << endl
+       << "2 - Encender una PC" << endl
+       << "3 - Apagar una PC" << endl
+       << "4 - Conectar PC a la red" << endl
+       << "5 - Desconectar PC a la red" << endl
+       << "6 - Descargar archivo" << endl
+       << "7 - Copiar archivo" << endl
+       << "8 - Salir" << endl
        << "-----------------------" << endl
-       << "Enter an option [1 - 8]: ";
+       << "Ingresa una opcion [1 - 8]: ";
 }
 
 void imprimirCreditos() {
   system("cls");
   cout << "CREDITOS" << endl
        << "-----------------------" << endl
-       << "Integrantes: " << endl
-       << "Ricardo Corrales " << endl
-       << "Walther Guerra " << endl
+       << "Integrantes:" << endl
+       << "- Ricardo Corrales" << endl
+       << "- Walther Guerra" << endl
        << endl
-       << "Clase: " << endl
-       << "Lenguaje de Programacion 3 " << endl
+       << "Clase:" << endl
+       << "Lenguajes de Programacion III" << endl
        << endl
-       << "Seccion: " << endl
-       << "0900 " << endl
+       << "Seccion:" << endl
+       << "0900" << endl
        << endl
        << "-----------------------" << endl;
 }
