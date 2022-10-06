@@ -201,18 +201,18 @@ void Network::copyFile() {
         cout << "Espacio insuficiente :(" << endl;
       }
 
+    } else if (!estanConectadas) {
+      cout << "No estan conectadas" << endl;
     } else if (!cpus[indexReceptor].isConnected) {
       cout << "ERROR: La PC receptora no esta conectada" << endl;
     } else if (!cpus[indexEmisor].isConnected) {
       cout << "ERROR: La PC emisora no esta conectada" << endl;
-    } else {
-      cout << "No estan conectadas" << endl;
     }
+  } else if (!estanEncendidas) {
+    cout << "No estan encendidas" << endl;
   } else if (!cpus[indexReceptor].isTurnedOn) {
     cout << "ERROR: La PC receptora no esta encendida" << endl;
   } else if (!cpus[indexEmisor].isTurnedOn) {
     cout << "ERROR: La PC emisora no esta encendida" << endl;
-  } else {
-    cout << "No estan encendidas" << endl;
   }
 }
