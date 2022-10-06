@@ -2,7 +2,7 @@
 
 Proyecto para repasar los conceptos de 👨‍💻 **Programación Orientada a Objetos**.
 
-El ejecutable del programa se puede encontrar ⬇️ [aquí](https://github.com/CMRicardo/Red-Computadoras/releases).
+El ejecutable del programa se puede encontrar [⬇️ aquí](https://github.com/CMRicardo/Red-Computadoras/releases).
 
 ![Logo UNAH](Images/Logo-UNAH.png)
 
@@ -14,17 +14,20 @@ Lenguajes de Programación III
 
 0900
 
-## Integrantes
+## 🤝 Integrantes
 
-🎆 **Ricardo Corrales** - 20202000211
+- **Ricardo Corrales** - 20202000211
 
-🎆 **Walther Guerra** - ###########
+- **Walther Guerra** - 20192000829
 
-## Principales funciones del programa
+## 🚀 Principales funciones del programa
 
 - ✔️ **Revisar** el estado de las PCs del laboratorio.
+
 - 🌐 Manipular el estado de las PCs, tanto la **corriente** como la **conexión a la red**.
+
 - ⬇️ **Descargar** archivos a una PC en específico.
+
 - 📄 **Copiar archivos** entre 2 PCs.
 
 ## 📷 Capturas de Pantalla
