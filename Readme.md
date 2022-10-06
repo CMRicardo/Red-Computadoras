@@ -28,4 +28,12 @@ Lenguajes de Programación III
 
 ### Menú principal
 
-![App screenshot](Images/App-Screenshot.png)
+![Menú Principal](Images/Menu-Principal.png)
+
+### Estado de la red
+
+![Estado de la red](Images/Mostrar-Red.png)
+
+### Creditos
+
+![Creditos](Images/Creditos.png)
