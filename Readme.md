@@ -1,21 +1,29 @@
-# Red-Computadoras
+# Red de Computadoras
 
-I've made this project based on the class of **"Lenguajes de Programación III"** which I'm currently cursing at **UNAH-VS**.
+Proyecto para repasar los conceptos de **Programación orientada a Objetos**.
 
-I'm also using this to practice further C++ development.
+## Clase
 
-Currently I'm separating my code in **Definition files** (.h) and **Implementation files** (.cpp)
+Lenguajes de Programación III
 
-But I'm also learning to use **Makefile**, which I'm putting in practice in this project.
+## Sección
 
-## Main functionalities are:
+0900
 
-- Reviewing the state of all PCs inside a Network.
-- Changing the state from **off** to **on** and viceversa.
-- Connecting and disconnecting an specific PC from the network.
+## Integrantes
 
-## Screenshots
+- Ricardo Corrales - 20202000211
+- Walther Guerra - ###########
 
-### Main menu
+## Principales funciones del programa
+
+- **Revisar** el estado de las PCs del laboratorio.
+- Manipular el estado de las PCs, tanto la **corriente** como la **conexión a la red**.
+- **Descargar** archivos a una PC en específico.
+- **Copiar archivos** entre 2 PCs.
+
+## Capturas de Pantalla
+
+### Menú principal
 
 ![App screenshot](Images/App-Screenshot.png)
