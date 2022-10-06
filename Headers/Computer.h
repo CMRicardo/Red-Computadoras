@@ -3,14 +3,14 @@
 
 #include "../Headers/Constants.h"
 
-class Computer {
+class Computadora {
  public:
   int id;
-  int disk;
-  bool isTurnedOn;
-  bool isConnected;
+  int disco;
+  bool estaEncendida;
+  bool estaConectada;
 
-  Computer();
+  Computadora();
 
-  void showInfo();
+  void mostrarInformacion();
 };

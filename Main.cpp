@@ -4,52 +4,52 @@
 
 #include "Headers/Computer.h"
 #include "Headers/Constants.h"
-#include "Headers/Menu.h"
+#include "Headers/Imprimir.h"
 #include "Headers/Network.h"
 
 using namespace std;
 
 int main() {
-  // Contains all of the PCs in the lab
-  Network net;
-  int selectedOption = DOES_NOT_EXIST;
+  // Contiene todas las PCs del laboratorio
+  Red red;
+  int selectedOption = NO_EXISTE;
 
   do {
-    // Clears the screen in each iteration
+    // Limpia la pantalla en cada iteración
     system("cls");
-    PrintMenu();
+    imprimirMenu();
     cin >> selectedOption;
 
     switch (selectedOption) {
-      case SHOW_INFO:
-        net.showNetwork();
+      case MOSTRAR_INFORMACION:
+        red.mostrarRed();
         break;
-      case TURN_ON:
-        net.turnOnComputer();
+      case ENCENDER:
+        red.encenderComputadora();
         break;
-      case TURN_OFF:
-        net.turnOffComputer();
+      case APAGAR:
+        red.apagarComputadora();
         break;
-      case CONNECT_NET:
-        net.connectNetwork();
+      case CONECTAR_RED:
+        red.conectarRed();
         break;
-      case DISCONNECT_NET:
-        net.disconnectNetwork();
+      case DESCONECTAR_RED:
+        red.desconectarRed();
         break;
-      case DOWNLOAD_FILE:
-        net.downloadFile();
+      case DESCARGAR_ARCHIVO:
+        red.descargarArchivo();
         break;
-      case COPY_FILE:
-        net.copyFile();
+      case COPIAR_ARCHIVO:
+        red.copiarArchivo();
         break;
-      case EXIT:
-        Imprimir_Creditos();
+      case SALIR:
+        imprimirCreditos();
         break;
       default:
         cout << "ERROR: Unknown option" << endl;
         break;
     }
-    // Pauses the app execution after each iteration
+    // Pausa la ejecución del programa después de cada iteración
     system("pause");
-  } while (selectedOption != EXIT);
+  } while (selectedOption != SALIR);
 }

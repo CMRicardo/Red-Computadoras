@@ -1,8 +1,8 @@
-#include "../Headers/Menu.h"
+#include "../Headers/Imprimir.h"
 
 using namespace std;
 
-void PrintMenu() {
+void imprimirMenu() {
   cout << "MAIN MENU" << endl
        << "-----------------------" << endl
        << "1 - Show PCs" << endl
@@ -17,7 +17,7 @@ void PrintMenu() {
        << "Enter an option [1 - 8]: ";
 }
 
-void Imprimir_Creditos() {
+void imprimirCreditos() {
   system("cls");
   cout << "CREDITOS" << endl
        << "-----------------------" << endl

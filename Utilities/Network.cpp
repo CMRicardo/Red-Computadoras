@@ -6,9 +6,9 @@ using namespace std;
  * The constructor for the Network class initializes the id field of each CPU
  * object in the cpus array to a unique value
  */
-Network::Network() {
+Red::Red() {
   for (int i = 0; i < MAX_CPUS; i++) {
-    cpus[i].id = BASE_ID + i;
+    cpus[i].id = ID_BASE + i;
   }
 }
 
@@ -19,8 +19,8 @@ Network::Network() {
  *
  * @return The index of the computer in the array.
  */
-int Network::getIndex() {
-  int index = DOES_NOT_EXIST;
+int Red::obtenerIndex() {
+  int index = NO_EXISTE;
   int idPC;
   cout << "Enter a valid id: ";
   cin >> idPC;
@@ -38,10 +38,10 @@ int Network::getIndex() {
 /**
  * It displays the information of each computer in the network
  */
-void Network::showNetwork() {
+void Red::mostrarRed() {
   for (int i = 0; i < MAX_CPUS; i++) {
     cout << "-----------------------" << endl << "PC #" << i + 1 << endl;
-    cpus[i].showInfo();
+    cpus[i].mostrarInformacion();
     cout << "-----------------------" << endl;
   }
 }
@@ -50,37 +50,32 @@ void Network::showNetwork() {
  * The function `turnOnComputer()` turns on a computer if it's not already
  * turned on
  */
-void Network::turnOnComputer() {
-  int index = getIndex();
+void Red::encenderComputadora() {
+  int index = obtenerIndex();
 
-  if (index == DOES_NOT_EXIST) {
+  if (index == NO_EXISTE) {
     cout << "ERROR: ID doesn't exist" << endl;
   } else {
-    if (cpus[index].isTurnedOn) {
+    if (cpus[index].estaEncendida) {
       cout << "PC #" << index + 1 << " was already turned on" << endl;
     } else {
       cout << "PC #" << index + 1 << " turned on" << endl;
-      cpus[index].isTurnedOn = true;
+      cpus[index].estaEncendida = true;
     }
   }
 }
 
-/**
- * The function gets the index of the computer to turn off, checks if the index
- * is valid, and if it is, checks if the computer is already turned off, and if
- * it isn't, turns it off
- */
-void Network::turnOffComputer() {
-  int index = getIndex();
+void Red::apagarComputadora() {
+  int index = obtenerIndex();
 
-  if (index == DOES_NOT_EXIST) {
+  if (index == NO_EXISTE) {
     cout << "ERROR: ID doesn't exist" << endl;
   } else {
-    if (!cpus[index].isTurnedOn) {
+    if (!cpus[index].estaEncendida) {
       cout << "PC #" << index + 1 << " was already turned off" << endl;
     } else {
       cout << "PC #" << index + 1 << " turned off" << endl;
-      cpus[index].isTurnedOn = false;
+      cpus[index].estaEncendida = false;
     }
   }
 }
@@ -89,20 +84,20 @@ void Network::turnOffComputer() {
  * If the ID exists, and the PC is turned on, and the PC is not already
  * connected, then connect the PC to the network
  */
-void Network::connectNetwork() {
-  int index = getIndex();
+void Red::conectarRed() {
+  int index = obtenerIndex();
 
-  if (index == DOES_NOT_EXIST) {
+  if (index == NO_EXISTE) {
     cout << "ERROR: ID doesn't exist" << endl;
   } else {
-    if (!cpus[index].isTurnedOn) {
+    if (!cpus[index].estaEncendida) {
       cout << "PC #" << index + 1 << " is turned off!" << endl
            << "Can't connect to the network" << endl;
-    } else if (cpus[index].isConnected) {
+    } else if (cpus[index].estaConectada) {
       cout << "PC #" << index + 1 << " is already connected" << endl;
     } else {
       cout << "PC #" << index + 1 << " connected to the network" << endl;
-      cpus[index].isConnected = true;
+      cpus[index].estaConectada = true;
     }
   }
 }
@@ -110,43 +105,44 @@ void Network::connectNetwork() {
 /**
  * The function disconnectNetwork() disconnects a computer from the network
  */
-void Network::disconnectNetwork() {
-  int index = getIndex();
+void Red::desconectarRed() {
+  int index = obtenerIndex();
 
-  if (index == DOES_NOT_EXIST) {
+  if (index == NO_EXISTE) {
     cout << "ERROR: ID doesn't exist" << endl;
   } else {
-    if (!cpus[index].isTurnedOn) {
+    if (!cpus[index].estaEncendida) {
       cout << "PC #" << index + 1 << " is turned off!" << endl;
-    } else if (!cpus[index].isConnected) {
+    } else if (!cpus[index].estaConectada) {
       cout << "PC #" << index + 1 << " is already disconnected" << endl;
     } else {
       cout << "PC #" << index + 1 << " disconnected of the network" << endl;
-      cpus[index].isConnected = false;
+      cpus[index].estaConectada = false;
     }
   }
 }
 
 int generarNumeroAleatorio() { return rand() % 512 + 1; }
 
-void Network::downloadFile() {
-  int index = getIndex();
+void Red::descargarArchivo() {
+  int index = obtenerIndex();
 
-  if (index == DOES_NOT_EXIST) {
+  if (index == NO_EXISTE) {
     cout << "ERROR: ID doesn't exist" << endl;
     return;
   }
 
-  if (cpus[index].isTurnedOn) {
-    if (cpus[index].isConnected) {
+  if (cpus[index].estaEncendida) {
+    if (cpus[index].estaConectada) {
       int pesoArchivo = generarNumeroAleatorio();
       cout << "El peso del archivo es: " << pesoArchivo << " GB" << endl;
 
-      if (cpus[index].disk >= pesoArchivo) {
-        cpus[index].disk -= pesoArchivo;
+      if (cpus[index].disco >= pesoArchivo) {
+        cpus[index].disco -= pesoArchivo;
         cout << "Hay espacio suficiente" << endl
              << "Descargando..." << endl
-             << "El espacio restante es: " << cpus[index].disk << " GB" << endl;
+             << "El espacio restante es: " << cpus[index].disco << " GB"
+             << endl;
       } else {
         cout << "Espacio insuficiente :(" << endl;
       }
@@ -159,37 +155,37 @@ void Network::downloadFile() {
   }
 }
 
-void Network::copyFile() {
+void Red::copiarArchivo() {
   cout << "------------------RECEPTOR------------------" << endl;
-  int indexReceptor = getIndex();
+  int indexReceptor = obtenerIndex();
   cout << "------------------EMISOR------------------" << endl;
-  int indexEmisor = getIndex();
+  int indexEmisor = obtenerIndex();
 
-  if (indexReceptor == DOES_NOT_EXIST) {
+  if (indexReceptor == NO_EXISTE) {
     cout << "ERROR: ID doesn't exist" << endl;
     return;
   }
-  if (indexEmisor == DOES_NOT_EXIST) {
+  if (indexEmisor == NO_EXISTE) {
     cout << "ERROR: ID doesn't exist" << endl;
     return;
   }
 
   bool estanEncendidas =
-      cpus[indexReceptor].isTurnedOn && cpus[indexEmisor].isTurnedOn;
+      cpus[indexReceptor].estaEncendida && cpus[indexEmisor].estaEncendida;
   bool estanConectadas =
-      cpus[indexReceptor].isConnected && cpus[indexEmisor].isConnected;
+      cpus[indexReceptor].estaConectada && cpus[indexEmisor].estaConectada;
 
   if (estanEncendidas) {
     if (estanConectadas) {
       int pesoArchivo = generarNumeroAleatorio();
       cout << "El peso del archivo es: " << pesoArchivo << " GB" << endl;
 
-      bool hayEspacioSuficiente = cpus[indexReceptor].disk >= pesoArchivo;
+      bool hayEspacioSuficiente = cpus[indexReceptor].disco >= pesoArchivo;
       if (hayEspacioSuficiente) {
-        cpus[indexReceptor].disk -= pesoArchivo;
+        cpus[indexReceptor].disco -= pesoArchivo;
         cout << "Hay espacio suficiente" << endl
              << "Copiando..." << endl
-             << "El espacio restante es: " << cpus[indexReceptor].disk << " GB"
+             << "El espacio restante es: " << cpus[indexReceptor].disco << " GB"
              << endl;
       } else {
         cout << "Espacio insuficiente :(" << endl;
@@ -197,16 +193,16 @@ void Network::copyFile() {
 
     } else if (!estanConectadas) {
       cout << "No estan conectadas" << endl;
-    } else if (!cpus[indexReceptor].isConnected) {
+    } else if (!cpus[indexReceptor].estaConectada) {
       cout << "ERROR: La PC receptora no esta conectada" << endl;
-    } else if (!cpus[indexEmisor].isConnected) {
+    } else if (!cpus[indexEmisor].estaConectada) {
       cout << "ERROR: La PC emisora no esta conectada" << endl;
     }
   } else if (!estanEncendidas) {
     cout << "No estan encendidas" << endl;
-  } else if (!cpus[indexReceptor].isTurnedOn) {
+  } else if (!cpus[indexReceptor].estaEncendida) {
     cout << "ERROR: La PC receptora no esta encendida" << endl;
-  } else if (!cpus[indexEmisor].isTurnedOn) {
+  } else if (!cpus[indexEmisor].estaEncendida) {
     cout << "ERROR: La PC emisora no esta encendida" << endl;
   }
 }

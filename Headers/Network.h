@@ -6,23 +6,23 @@
 #include "Computer.h"
 #include "Constants.h"
 
-class Network {
+class Red {
  public:
-  Computer cpus[MAX_CPUS];
+  Computadora cpus[MAX_CPUS];
 
-  Network();
+  Red();
 
-  void showNetwork();
+  void mostrarRed();
 
-  void turnOnComputer();
-  void turnOffComputer();
+  void encenderComputadora();
+  void apagarComputadora();
 
-  void connectNetwork();
-  void disconnectNetwork();
+  void conectarRed();
+  void desconectarRed();
 
-  void downloadFile();
-  void copyFile();
+  void descargarArchivo();
+  void copiarArchivo();
 
  private:
-  int getIndex();
+  int obtenerIndex();
 };

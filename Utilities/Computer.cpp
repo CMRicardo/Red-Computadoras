@@ -2,17 +2,17 @@
 
 using namespace std;
 
-Computer::Computer() {
-  id = DOES_NOT_EXIST;
-  disk = INITIAL_DISK;
-  isTurnedOn = false;
-  isConnected = false;
+Computadora::Computadora() {
+  id = NO_EXISTE;
+  disco = DISCO_INICIAL;
+  estaEncendida = false;
+  estaConectada = false;
 }
 
-void Computer::showInfo() {
+void Computadora::mostrarInformacion() {
   cout << "ID: " << id << endl
-       << "Disk: " << disk << " GB" << endl
-       << "Power: " << (isTurnedOn ? "ON" : "OFF") << endl
-       << "Net status: " << (isConnected ? "CONNECTED" : "DISCONNECTED")
+       << "Disco: " << disco << " GB" << endl
+       << "Estado: " << (estaEncendida ? "ENCENDIDA" : "APAGADA") << endl
+       << "Estado de red: " << (estaConectada ? "CONECTADA" : "DESCONECTADA")
        << endl;
 }
