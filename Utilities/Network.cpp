@@ -1,5 +1,7 @@
 #include "../Headers/Network.h"
 
+#include <stdlib.h>
+
 #include <iostream>
 
 #include "../Headers/Constants.h"
@@ -131,6 +133,8 @@ void Network::disconnectNetwork() {
   }
 }
 
+int generarNumeroAleatorio() { return rand() % 512 + 1; }
+
 void Network::downloadFile() {
   int index = getIndex();
 
@@ -138,8 +142,25 @@ void Network::downloadFile() {
     cout << "ERROR: ID doesn't exist" << endl;
     return;
   }
-  const bool isValid = cpus[index].isConnected && cpus[index].isTurnedOn;
-  if (isValid) {
-    cout << "Downloading..." << endl;
+
+  if (cpus[index].isTurnedOn) {
+    if (cpus[index].isConnected) {
+      int pesoArchivo = generarNumeroAleatorio();
+      cout << "El peso del archivo es: " << pesoArchivo << " GB" << endl;
+
+      if (cpus[index].disk >= pesoArchivo) {
+        cpus[index].disk -= pesoArchivo;
+        cout << "Hay espacio suficiente" << endl
+             << "Descargando..." << endl
+             << "El espacio restante es: " << cpus[index].disk << "GB" << endl;
+      } else {
+        cout << "Espacio insuficiente :(" << endl;
+      }
+
+    } else {
+      cout << "No esta conectada" << endl;
+    }
+  } else {
+    cout << "No esta encendida" << endl;
   }
 }

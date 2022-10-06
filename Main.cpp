@@ -7,7 +7,6 @@
 #include "Headers/Menu.h"
 #include "Headers/Network.h"
 
-
 using namespace std;
 
 int main() {
