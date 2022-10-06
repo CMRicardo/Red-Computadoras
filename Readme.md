@@ -1,6 +1,7 @@
 # Red de Computadoras
 
 Proyecto para repasar los conceptos de **Programación Orientada a Objetos**.
+El ejecutable del programa se puede encontrar [aquí](https://github.com/CMRicardo/Red-Computadoras/releases).
 
 ![Logo UNAH](Images/Logo-UNAH.png)
 
