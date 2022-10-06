@@ -1,6 +1,8 @@
 # Red de Computadoras
 
-Proyecto para repasar los conceptos de **Programación orientada a Objetos**.
+Proyecto para repasar los conceptos de **Programación Orientada a Objetos**.
+
+![Logo UNAH](Images/Logo-UNAH.png)
 
 ## Clase
 
@@ -12,8 +14,8 @@ Lenguajes de Programación III
 
 ## Integrantes
 
-- Ricardo Corrales - 20202000211
-- Walther Guerra - ###########
+- **Ricardo Corrales** - 20202000211
+- **Walther Guerra** - ###########
 
 ## Principales funciones del programa
 
