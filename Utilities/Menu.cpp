@@ -1,8 +1,5 @@
 #include "../Headers/Menu.h"
 
-#include <cstdlib>
-#include <iostream>
-
 using namespace std;
 
 void PrintMenu() {

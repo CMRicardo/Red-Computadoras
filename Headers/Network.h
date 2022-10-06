@@ -1,6 +1,10 @@
 #pragma once
-#include "../Headers/Constants.h"
+#include <stdlib.h>
+
+#include <iostream>
+
 #include "Computer.h"
+#include "Constants.h"
 
 class Network {
  public:

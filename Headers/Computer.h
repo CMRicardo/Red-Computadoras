@@ -1,4 +1,8 @@
 #pragma once
+#include <iostream>
+
+#include "../Headers/Constants.h"
+
 class Computer {
  public:
   int id;
