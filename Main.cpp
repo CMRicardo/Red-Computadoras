@@ -43,8 +43,7 @@ int main() {
         net.copyFile();
         break;
       case EXIT:
-        // TODO: Hacer los créditos
-        cout << "Goodbye!" << endl;
+        Imprimir_Creditos();
         break;
       default:
         cout << "ERROR: Unknown option" << endl;

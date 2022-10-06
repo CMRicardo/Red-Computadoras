@@ -1,5 +1,6 @@
 #include "../Headers/Menu.h"
 
+#include <cstdlib>
 #include <iostream>
 
 using namespace std;
@@ -19,16 +20,19 @@ void PrintMenu() {
        << "Enter an option [1 - 8]: ";
 }
 
-void Imprimir_Creditos(){
-  cout<< "CREDITOS" << endl
-      << "-----------------------" << endl
-      << "Integrantes: " << endl
-      << "Ricardo Corrales " << endl
-      << "Walther Guerra " << endl << endl
-      << "Clase: " << endl
-      << "Lenguaje de Programacion 3 " << endl << endl
-      << "Seccion: " << endl
-      << "0900 " << endl << endl
-      << "-----------------------" << endl;
-
+void Imprimir_Creditos() {
+  system("cls");
+  cout << "CREDITOS" << endl
+       << "-----------------------" << endl
+       << "Integrantes: " << endl
+       << "Ricardo Corrales " << endl
+       << "Walther Guerra " << endl
+       << endl
+       << "Clase: " << endl
+       << "Lenguaje de Programacion 3 " << endl
+       << endl
+       << "Seccion: " << endl
+       << "0900 " << endl
+       << endl
+       << "-----------------------" << endl;
 }
