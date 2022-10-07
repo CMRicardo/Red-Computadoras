@@ -1,6 +1,6 @@
 BIN = bin
 SRC = src
-OBJ = ObjectFiles
+OBJ = obj
 CXX = clang
 CPPFLAGS  =
 SOURCES = $(wildcard $(SRC)/*.cpp)

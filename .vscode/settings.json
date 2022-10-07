@@ -3,7 +3,12 @@
   "makefile.launchConfigurations": [
     {
       "cwd": "c:\\Users\\ricar\\Dev\\Red-Computadoras",
-      "binaryPath": "c:\\Users\\ricar\\Dev\\Red-Computadoras\\Red-Computadoras.exe",
+      "binaryPath": "c:\\Users\\ricar\\Dev\\Red-Computadoras\\bin\\Red-Computadoras.exe",
+      "binaryArgs": []
+    },
+    {
+      "cwd": "c:\\Users\\ricar\\Dev\\Red-Computadoras\\bin",
+      "binaryPath": "c:\\Users\\ricar\\Dev\\Red-Computadoras\\bin\\Red-Computadoras.exe",
       "binaryArgs": []
     }
   ],
