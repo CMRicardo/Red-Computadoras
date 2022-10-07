@@ -37,13 +37,14 @@ void Red::encenderComputadora() {
 
   if (index == NO_EXISTE) {
     cout << "ERROR: La PC no existe" << endl;
+    return;
+  }
+
+  if (cpus[index].estaEncendida) {
+    cout << "PC #" << index + 1 << " ya esta encendida" << endl;
   } else {
-    if (cpus[index].estaEncendida) {
-      cout << "PC #" << index + 1 << " ya esta encendida" << endl;
-    } else {
-      cout << "PC #" << index + 1 << " encendida" << endl;
-      cpus[index].estaEncendida = true;
-    }
+    cout << "PC #" << index + 1 << " encendida" << endl;
+    cpus[index].estaEncendida = true;
   }
 }
 
@@ -52,13 +53,14 @@ void Red::apagarComputadora() {
 
   if (index == NO_EXISTE) {
     cout << "ERROR: La PC no existe" << endl;
+    return;
+  }
+
+  if (!cpus[index].estaEncendida) {
+    cout << "PC #" << index + 1 << " ya esta apagada" << endl;
   } else {
-    if (!cpus[index].estaEncendida) {
-      cout << "PC #" << index + 1 << " ya esta apagada" << endl;
-    } else {
-      cout << "PC #" << index + 1 << " apagada" << endl;
-      cpus[index].estaEncendida = false;
-    }
+    cout << "PC #" << index + 1 << " apagada" << endl;
+    cpus[index].estaEncendida = false;
   }
 }
 
@@ -67,16 +69,17 @@ void Red::conectarRed() {
 
   if (index == NO_EXISTE) {
     cout << "ERROR: La PC no existe" << endl;
+    return;
+  }
+
+  if (!cpus[index].estaEncendida) {
+    cout << "PC #" << index + 1 << " esta apagada!" << endl
+         << "No se puede conectar a la red" << endl;
+  } else if (cpus[index].estaConectada) {
+    cout << "PC #" << index + 1 << " ya esta conectada" << endl;
   } else {
-    if (!cpus[index].estaEncendida) {
-      cout << "PC #" << index + 1 << " esta apagada!" << endl
-           << "No se puede conectar a la red" << endl;
-    } else if (cpus[index].estaConectada) {
-      cout << "PC #" << index + 1 << " ya esta conectada" << endl;
-    } else {
-      cout << "PC #" << index + 1 << " conectada a la red" << endl;
-      cpus[index].estaConectada = true;
-    }
+    cout << "PC #" << index + 1 << " conectada a la red" << endl;
+    cpus[index].estaConectada = true;
   }
 }
 
@@ -85,19 +88,20 @@ void Red::desconectarRed() {
 
   if (index == NO_EXISTE) {
     cout << "ERROR: La PC no existe" << endl;
+    return;
+  }
+
+  if (!cpus[index].estaEncendida) {
+    cout << "PC #" << index + 1 << " esta apagada!" << endl;
+  } else if (!cpus[index].estaConectada) {
+    cout << "PC #" << index + 1 << " ya esta desconectada" << endl;
   } else {
-    if (!cpus[index].estaEncendida) {
-      cout << "PC #" << index + 1 << " esta apagada!" << endl;
-    } else if (!cpus[index].estaConectada) {
-      cout << "PC #" << index + 1 << " ya esta desconectada" << endl;
-    } else {
-      cout << "PC #" << index + 1 << " desconectada de la red" << endl;
-      cpus[index].estaConectada = false;
-    }
+    cout << "PC #" << index + 1 << " desconectada de la red" << endl;
+    cpus[index].estaConectada = false;
   }
 }
 
-int generarNumeroAleatorio() { return rand() % 512 + 1; }
+int generarNumeroAleatorio() { return rand() % TAMANIO_MAXIMO + 1; }
 
 void Red::descargarArchivo() {
   int index = obtenerIndex();
@@ -107,77 +111,78 @@ void Red::descargarArchivo() {
     return;
   }
 
-  if (cpus[index].estaEncendida) {
-    if (cpus[index].estaConectada) {
-      int pesoArchivo = generarNumeroAleatorio();
-      cout << "El peso del archivo es: " << pesoArchivo << " GB" << endl;
-
-      if (cpus[index].disco >= pesoArchivo) {
-        cpus[index].disco -= pesoArchivo;
-        cout << "Hay espacio suficiente" << endl
-             << "Descargando..." << endl
-             << "El espacio restante es: " << cpus[index].disco << " GB"
-             << endl;
-      } else {
-        cout << "Espacio insuficiente :(" << endl;
-      }
-
-    } else {
-      cout << "No esta conectada" << endl;
-    }
-  } else {
+  if (!cpus[index].estaEncendida) {
     cout << "No esta encendida" << endl;
+    return;
   }
+
+  if (!cpus[index].estaConectada) {
+    cout << "No esta conectada a la red" << endl;
+    return;
+  }
+
+  int pesoArchivo = generarNumeroAleatorio();
+  cout << "El peso del archivo es: " << pesoArchivo << " GB" << endl;
+
+  bool hayEspacioDisponible = cpus[index].disco >= pesoArchivo;
+  if (!hayEspacioDisponible) {
+    cout << "Espacio insuficiente :(" << endl;
+    return;
+  }
+
+  cpus[index].disco -= pesoArchivo;
+  cout << endl
+       << "Hay espacio suficiente" << endl
+       << endl
+       << "Descargando..." << endl
+       << endl
+       << "El espacio restante es: " << cpus[index].disco << " GB" << endl;
 }
 
 void Red::copiarArchivo() {
   cout << "------------------RECEPTOR------------------" << endl;
   int indexReceptor = obtenerIndex();
+  if (indexReceptor == NO_EXISTE) {
+    cout << "ERROR: La PC no existe" << endl;
+    return;
+  }
+  if (!cpus[indexReceptor].estaEncendida) {
+    cout << "PC #" << indexReceptor + 1 << " no esta encendida" << endl;
+    return;
+  }
+  if (!cpus[indexReceptor].estaConectada) {
+    cout << "PC #" << indexReceptor + 1 << " no esta conectada a la red"
+         << endl;
+    return;
+  }
+
   cout << "------------------EMISOR------------------" << endl;
   int indexEmisor = obtenerIndex();
-
-  if (indexReceptor == NO_EXISTE) {
-    cout << "ERROR: ID doesn't exist" << endl;
-    return;
-  }
   if (indexEmisor == NO_EXISTE) {
-    cout << "ERROR: ID doesn't exist" << endl;
+    cout << "ERROR: La PC no existe" << endl;
+    return;
+  }
+  if (!cpus[indexEmisor].estaEncendida) {
+    cout << "PC #" << indexEmisor + 1 << " no esta encendida" << endl;
+    return;
+  }
+  if (!cpus[indexEmisor].estaConectada) {
+    cout << "PC #" << indexEmisor + 1 << " no esta conectada a la red" << endl;
     return;
   }
 
-  bool estanEncendidas =
-      cpus[indexReceptor].estaEncendida && cpus[indexEmisor].estaEncendida;
-  bool estanConectadas =
-      cpus[indexReceptor].estaConectada && cpus[indexEmisor].estaConectada;
+  int pesoArchivo = generarNumeroAleatorio();
+  cout << "El peso del archivo es: " << pesoArchivo << " GB" << endl;
 
-  if (estanEncendidas) {
-    if (estanConectadas) {
-      int pesoArchivo = generarNumeroAleatorio();
-      cout << "El peso del archivo es: " << pesoArchivo << " GB" << endl;
-
-      bool hayEspacioSuficiente = cpus[indexReceptor].disco >= pesoArchivo;
-      if (hayEspacioSuficiente) {
-        cpus[indexReceptor].disco -= pesoArchivo;
-        cout << "Hay espacio suficiente" << endl
-             << "Copiando..." << endl
-             << "El espacio restante es: " << cpus[indexReceptor].disco << " GB"
-             << endl;
-      } else {
-        cout << "Espacio insuficiente :(" << endl;
-      }
-
-    } else if (!estanConectadas) {
-      cout << "No estan conectadas" << endl;
-    } else if (!cpus[indexReceptor].estaConectada) {
-      cout << "ERROR: La PC receptora no esta conectada" << endl;
-    } else if (!cpus[indexEmisor].estaConectada) {
-      cout << "ERROR: La PC emisora no esta conectada" << endl;
-    }
-  } else if (!estanEncendidas) {
-    cout << "No estan encendidas" << endl;
-  } else if (!cpus[indexReceptor].estaEncendida) {
-    cout << "ERROR: La PC receptora no esta encendida" << endl;
-  } else if (!cpus[indexEmisor].estaEncendida) {
-    cout << "ERROR: La PC emisora no esta encendida" << endl;
+  bool hayEspacioSuficiente = cpus[indexReceptor].disco >= pesoArchivo;
+  if (!hayEspacioSuficiente) {
+    cout << "Espacio insuficiente :(" << endl;
+    return;
   }
+
+  cpus[indexReceptor].disco -= pesoArchivo;
+  cout << "Hay espacio suficiente" << endl
+       << "Copiando..." << endl
+       << "El espacio restante es: " << cpus[indexReceptor].disco << " GB"
+       << endl;
 }

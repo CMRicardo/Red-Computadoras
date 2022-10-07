@@ -7,6 +7,8 @@ const int NO_EXISTE = -1;
 const int ID_BASE = 1000;
 // Almacenamiento disponible por defecto
 const int DISCO_INICIAL = 1024;
+// Tamaño máximo de archivo
+const int TAMANIO_MAXIMO = 512;
 // Opciones del programa
 enum OPCIONES {
   MOSTRAR_INFORMACION = 1,
