@@ -1,37 +1,30 @@
-EXECUTABLE = Red-Computadoras.exe
-CC = clang
+BIN = bin
+SRC = src
+OBJ = ObjectFiles
+CXX = clang
+CPPFLAGS  =
+SOURCES = $(wildcard $(SRC)/*.cpp)
+OBJS = $(addprefix $(OBJ)/, $(notdir $(SOURCES:.cpp=.o)))
 
-# Compiles the program
-all: ObjectFiles/Main.o ObjectFiles/Computer.o \
-ObjectFiles/Imprimir.o ObjectFiles/Network.o \
-ObjectFiles/CopiarArchivo.o ObjectFiles/DescargarArchivo.o \
-ObjectFiles/EstadoPC.o ObjectFiles/Conexion.o
-	$(CC) $? -o $(EXECUTABLE)
+target = Red-Computadoras.exe
 
-ObjectFiles/Main.o: Main.cpp ./Headers/Constants.h
-	$(CC) -c Main.cpp -o ./$@
+all: $(BIN)/$(target)
 
-ObjectFiles/Computer.o: ./Utilities/Computer.cpp ./Headers/Computer.h ./Headers/Constants.h
-	$(CC) -c ./Utilities/Computer.cpp -o ./$@
+$(BIN)/$(target): $(OBJS)
+	@echo Creando $@... con $^
+	$(CXX) $(CPPFLAGS) $(OBJS) -o $@
 
-ObjectFiles/Imprimir.o: ./Utilities/Imprimir.cpp ./Headers/Imprimir.h
-	$(CC) -c ./Utilities/Imprimir.cpp -o ./$@
+$(OBJ)/%.o: $(SRC)/%.cpp
+	@echo Creando $@... con $^
+	$(CXX) $(CPPFLAGS) -c $< -o $@
 
-ObjectFiles/Network.o: ./Utilities/Network.cpp ./Headers/Network.h ./Headers/Constants.h
-	$(CC) -c ./Utilities/Network.cpp -o ./$@
+# ************ Limpieza ************
+.PHONY: clean
+clean :
+	@echo Limpiando archivos intermedios...
+	rm $(OBJ)/*
+	rm $(BIN)/*
 
-ObjectFiles/CopiarArchivo.o: ./Utilities/CopiarArchivo.cpp ./Headers/Network.h ./Headers/Constants.h
-	$(CC) -c ./Utilities/CopiarArchivo.cpp -o ./$@
-
-ObjectFiles/DescargarArchivo.o: ./Utilities/DescargarArchivo.cpp ./Headers/Network.h ./Headers/Constants.h
-	$(CC) -c ./Utilities/DescargarArchivo.cpp -o ./$@
-
-ObjectFiles/EstadoPC.o: ./Utilities/EstadoPC.cpp ./Headers/Network.h ./Headers/Constants.h
-	$(CC) -c ./Utilities/EstadoPC.cpp -o ./$@
-
-ObjectFiles/Conexion.o: ./Utilities/Conexion.cpp ./Headers/Network.h ./Headers/Constants.h
-	$(CC) -c ./Utilities/Conexion.cpp -o ./$@
-
-# Cleans temporary files
-clean:
-	rm -f ./ObjectFiles/*.o $(EXECUTABLE)
+debug:
+	@echo deberiamos ver la lista de archivos: $(SOURCES)
+	@echo deberiamos ver la lista de archivos .o: $(OBJS)

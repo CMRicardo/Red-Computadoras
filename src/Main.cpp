@@ -2,9 +2,9 @@
 
 #include <iostream>
 
-#include "Headers/Constants.h"
-#include "Headers/Imprimir.h"
-#include "Headers/Network.h"
+#include "../Headers/Constants.h"
+#include "../Headers/Imprimir.h"
+#include "../Headers/Network.h"
 
 using namespace std;
 
