@@ -25,4 +25,5 @@ class Red {
 
  private:
   int obtenerIndex();
+  int generarNumeroAleatorio();
 };
