@@ -45,7 +45,7 @@ int main() {
         imprimirCreditos();
         break;
       default:
-        cout << "ERROR: Unknown option" << endl;
+        cout << "ERROR: Opcion desconocida" << endl;
         break;
     }
     // Pausa la ejecución del programa después de cada iteración
