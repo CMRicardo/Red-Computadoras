@@ -2,7 +2,7 @@ EXECUTABLE = Red-Computadoras.exe
 CC = clang
 
 # Compiles the program
-all: ObjectFiles/Main.o ObjectFiles/Computer.o ObjectFiles/Imprimir.o ObjectFiles/Network.o ObjectFiles/CopiarArchivo.o
+all: ObjectFiles/Main.o ObjectFiles/Computer.o ObjectFiles/Imprimir.o ObjectFiles/Network.o ObjectFiles/CopiarArchivo.o ObjectFiles/DescargarArchivo.o
 	$(CC) $? -o $(EXECUTABLE)
 
 ObjectFiles/Main.o: Main.cpp ./Headers/Constants.h
@@ -17,8 +17,11 @@ ObjectFiles/Imprimir.o: ./Utilities/Imprimir.cpp ./Headers/Imprimir.h
 ObjectFiles/Network.o: ./Utilities/Network.cpp ./Headers/Network.h ./Headers/Constants.h
 	$(CC) -c ./Utilities/Network.cpp -o ./$@
 
-ObjectFiles/CopiarArchivo.o: ./Utilities/Network.cpp ./Headers/Network.h ./Headers/Constants.h
+ObjectFiles/CopiarArchivo.o: ./Utilities/CopiarArchivo.cpp ./Headers/Network.h ./Headers/Constants.h
 	$(CC) -c ./Utilities/CopiarArchivo.cpp -o ./$@
+
+ObjectFiles/DescargarArchivo.o: ./Utilities/DescargarArchivo.cpp ./Headers/Network.h ./Headers/Constants.h
+	$(CC) -c ./Utilities/DescargarArchivo.cpp -o ./$@
 
 # Cleans temporary files
 clean:
