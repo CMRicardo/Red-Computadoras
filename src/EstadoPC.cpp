@@ -1,4 +1,4 @@
-#include "../Headers/Network.h"
+#include "Headers/Network.h"
 using namespace std;
 
 void Red::encenderComputadora() {

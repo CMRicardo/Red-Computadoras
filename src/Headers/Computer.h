@@ -1,7 +1,7 @@
 #pragma once
 #include <iostream>
 
-#include "../Headers/Constants.h"
+#include "Constants.h"
 
 class Computadora {
  public:

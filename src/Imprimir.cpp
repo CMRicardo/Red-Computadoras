@@ -1,4 +1,4 @@
-#include "../Headers/Imprimir.h"
+#include "Headers/Imprimir.h"
 
 using namespace std;
 
