@@ -5,7 +5,7 @@ CC = clang
 all: ObjectFiles/Main.o ObjectFiles/Computer.o \
 ObjectFiles/Imprimir.o ObjectFiles/Network.o \
 ObjectFiles/CopiarArchivo.o ObjectFiles/DescargarArchivo.o \
-ObjectFiles/EstadoPC.o
+ObjectFiles/EstadoPC.o ObjectFiles/Conexion.o
 	$(CC) $? -o $(EXECUTABLE)
 
 ObjectFiles/Main.o: Main.cpp ./Headers/Constants.h
@@ -28,6 +28,9 @@ ObjectFiles/DescargarArchivo.o: ./Utilities/DescargarArchivo.cpp ./Headers/Netwo
 
 ObjectFiles/EstadoPC.o: ./Utilities/EstadoPC.cpp ./Headers/Network.h ./Headers/Constants.h
 	$(CC) -c ./Utilities/EstadoPC.cpp -o ./$@
+
+ObjectFiles/Conexion.o: ./Utilities/Conexion.cpp ./Headers/Network.h ./Headers/Constants.h
+	$(CC) -c ./Utilities/Conexion.cpp -o ./$@
 
 # Cleans temporary files
 clean:
