@@ -24,7 +24,3 @@ clean :
 	@echo Limpiando archivos intermedios...
 	rm $(OBJ)/*
 	rm $(BIN)/*
-
-debug:
-	@echo deberiamos ver la lista de archivos: $(SOURCES)
-	@echo deberiamos ver la lista de archivos .o: $(OBJS)
