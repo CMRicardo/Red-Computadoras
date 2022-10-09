@@ -3,8 +3,8 @@
 
 #include <iostream>
 
-#include "Computer.h"
-#include "Constants.h"
+#include "Computadora.h"
+#include "Constantes.h"
 
 class Red {
  public:

@@ -1,4 +1,4 @@
-#include "Headers/Network.h"
+#include "Headers/Red.h"
 using namespace std;
 
 void Red::descargarArchivo() {

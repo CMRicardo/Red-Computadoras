@@ -1,4 +1,4 @@
-#include "Headers/Computer.h"
+#include "Headers/Computadora.h"
 
 using namespace std;
 
