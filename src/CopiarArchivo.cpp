@@ -43,8 +43,10 @@ void Red::copiarArchivo() {
   }
 
   cpus[indexReceptor].disco -= pesoArchivo;
-  cout << "Hay espacio suficiente" << endl
-       << "Copiando..." << endl
-       << "El espacio restante es: " << cpus[indexReceptor].disco << " GB"
+  cout << "Hay espacio suficiente " << endl
+       << "Copiando..." << endl << endl;
+       system ("pause");
+
+       cout << "El espacio restante es: " << cpus[indexReceptor].disco << " GB" << endl
        << endl;
 }
