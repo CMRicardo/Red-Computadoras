@@ -32,7 +32,9 @@ void Red::descargarArchivo() {
   cout << endl
        << "Hay espacio suficiente" << endl
        << endl
-       << "Descargando..." << endl
-       << endl
+       << "Descargando..." << endl <<endl;
+       system("pause");
+
+       cout << endl
        << "El espacio restante es: " << cpus[index].disco << " GB" << endl;
 }
