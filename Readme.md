@@ -31,7 +31,7 @@ Ejemplo utilizando **clang** desde la terminal:
 > Podría utilizarse **g++/gcc** en lugar de **clang**
 
 ```console
-  clang src/*.cpp -o Red-Computadoras.exe
+clang src/*.cpp -o Red-Computadoras.exe
 ```
 
 - Utilizando **make** seria:
@@ -39,7 +39,7 @@ Ejemplo utilizando **clang** desde la terminal:
 > Revisar que la variable **CXX** sea el nombre del compilador de nuestra preferencia
 
 ```console
-  make
+make
 ```
 
 ## 🚀 Principales funciones del programa
