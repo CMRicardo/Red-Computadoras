@@ -6,7 +6,7 @@ CPPFLAGS  =
 SOURCES = $(wildcard $(SRC)/*.cpp)
 OBJS = $(addprefix $(OBJ)/, $(notdir $(SOURCES:.cpp=.o)))
 
-target = Red-Computadoras.exe
+target = Red-Computadoras
 
 all: $(BIN)/$(target)
 

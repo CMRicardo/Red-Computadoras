@@ -1,8 +1,8 @@
-# Object files
+# Archivos objeto
 *.o
 
-# Executable file
-*.exe
+# Archivo ejecutable
+Red-Computadoras
 
-# vscode
+# Carpeta vscode
 .vscode
