@@ -46,7 +46,7 @@ clang src/*.cpp -o Red-Computadoras.exe
 
 - Utilizando **make** seria:
 
-> Revisar que la variable **CXX** sea el nombre del compilador de nuestra preferencia
+> Revisar que la variable **CXX** sea el nombre del compilador de nuestra preferencia (por defecto es **clang**)
 
 ```console
 make
