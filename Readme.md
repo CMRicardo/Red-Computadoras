@@ -24,6 +24,16 @@ Lenguajes de Programación III
 
 - Clonar el repositorio
 
+```console
+git clone https://github.com/CMRicardo/Red-Computadoras
+```
+
+- Entrar a la carpeta del proyecto
+
+```console
+cd Red-Computadoras
+```
+
 - Compilar todos los archivos **.cpp** dentro del directorio **src**
 
 Ejemplo utilizando **clang** desde la terminal:
