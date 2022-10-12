@@ -20,6 +20,28 @@ Lenguajes de Programación III
 
 - **Walther Guerra** - 20192000829
 
+## 🧑‍💻 Desarrollo
+
+- Clonar el repositorio
+
+- Compilar todos los archivos **.cpp** dentro del directorio **src**
+
+Ejemplo utilizando **clang** desde la terminal:
+
+> Podría utilizarse **g++/gcc** en lugar de **clang**
+
+```console
+  clang src/*.cpp -o Red-Computadoras.exe
+```
+
+- Utilizando **make** seria:
+
+> Revisar que la variable **CXX** sea el nombre del compilador de nuestra preferencia
+
+```console
+  make
+```
+
 ## 🚀 Principales funciones del programa
 
 - ✔️ **Revisar** el estado de las PCs del laboratorio.
